@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comercial Ventura Reyes — Tecnología Premium</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-content fade-up">
+      <div class="hero-badge">✦ Comercial Ventura Reyes</div>
+      <h1>Calidad<br>Servicio y <em>Confianza</em></h1>
+      <p style="font-size:0.85rem;color:var(--text2);font-style:italic;margin-bottom:12px;border-left:3px solid var(--accent);padding-left:12px;">
+        "Todo lo puedo en Cristo que me fortalece" — Filipenses 4:13
+      </p>
+      <p class="hero-desc">Equipa tu hogar con productos de calidad, precios justos y atención personalizada.</p>
+      <div class="hero-ctas">
+        <a href="productos.html" class="btn-primary">Explorar productos →</a>
+        <a href="categorias.html" class="btn-secondary">Ver categorías</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">100+</div>
+          <div class="stat-label">Productos</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">8</div>
+          <div class="stat-label">Categorías</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Originales</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual fade-up fade-up-2">
+      <img src="LogoNegro.PNG" alt="Comercial Ventura Reyes" class="hero-img-main logo-claro" style="object-fit:contain;background:transparent;">
+      <img src="LogoBlancoo.PNG" alt="Comercial Ventura Reyes" class="hero-img-main logo-oscuro" style="object-fit:contain;background:transparent;">
+      <div class="hero-card card-1">
+        <div class="hc-label">🔥 Más vendido</div>
+        <div class="hc-name">Cama Capri 1.60m</div>
+        <div class="hc-price">$600.00</div>
+        <div class="hc-stars">★★★★★</div>
+      </div>
+      <div class="hero-card card-2">
+        <div class="hc-label">⚡ Oferta especial</div>
+        <div class="hc-name">Cocina MABE 4Q</div>
+        <div class="hc-price">$450.00</div>
+        <div class="hc-stars">★★★★★</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CATEGORÍAS ── -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Compra por <span>categoría</span></h2>
+      <a href="categorias.html" class="section-link">Ver todas →</a>
+    </div>
+    <div class="cat-grid" id="home-cat-grid"></div>
+  </section>
+
+  <!-- ── PRODUCTOS DESTACADOS ── -->
+  <section class="section" style="padding-top:0">
+    <div class="section-header">
+      <h2 class="section-title">Productos <span>destacados</span></h2>
+      <a href="productos.html" class="section-link">Ver catálogo →</a>
+    </div>
+    <div class="product-grid" id="home-product-grid"></div>
+  </section>
+
+  <!-- ── BANNER ── -->
+  <section class="section" style="padding-top:0">
+    <div style="background:linear-gradient(135deg,#ff9900,#0812de);border-radius:var(--radius);padding:48px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;">
+      <div>
+        <h2 style="font-family:var(--font-head);color:white;font-size:1.8rem;letter-spacing:-0.5px;margin-bottom:8px;">¿Tienes dudas?<br>Escríbenos por WhatsApp</h2>
+        <p style="color:rgba(255,255,255,.8);font-size:.95rem;">Nuestro equipo responde en minutos 💬</p>
+      </div>
+      <a href="contacto.html" style="padding:14px 28px;border-radius:50px;background:rgb(241, 241, 241);color:#1E6FE8;font-weight:700;font-size:.95rem;transition:all 200ms;white-space:nowrap;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">Contáctanos →</a>
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+<script src="layout.js"></script>
+<script>
+  // Renderizar categorías
+  const catGrid = document.getElementById("home-cat-grid");
+  CATEGORIES.forEach(cat => {
+    const count = PRODUCTS.filter(p => p.category === cat.id).length;
+    catGrid.innerHTML += `
+      <div class="cat-card fade-up" onclick="location.href='productos.html?cat=${cat.id}'">
+        <div class="cat-icon">${cat.icon}</div>
+        <div class="cat-name">${cat.name}</div>
+        <div class="cat-count">${count} productos</div>
+      </div>`;
+  });
+
+  // Renderizar productos destacados (primeros 8)
+  const prodGrid = document.getElementById("home-product-grid");
+  PRODUCTS.slice(0, 8).forEach((p, i) => {
+    prodGrid.innerHTML += `
+      <div class="product-card fade-up fade-up-${(i % 4) + 1}">
+        <div class="product-img-wrap">
+          <img src="${p.img}" alt="${p.name}" class="product-img" loading="lazy">
+          <span class="product-cat-badge">${p.category}</span>
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">${p.name}</h3>
+          <p class="product-desc">${p.desc}</p>
+          <div class="product-footer">
+            <span class="product-price">$${p.price.toFixed(2)}</span>
+            ${renderAddButton(p)}
+          </div>
+        </div>
+      </div>`;
+  });
+</script>
+</body>
+</html>

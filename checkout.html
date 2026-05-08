@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Comercial Ventura Reyes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main>
+  <div class="page-hero">
+    <h1>Tu <span style="color:var(--accent)">Pedido</span></h1>
+    <p>Revisa tus productos y completa tu compra</p>
+  </div>
+
+  <div id="empty-state" class="empty-cart-msg" style="display:none">
+    <div class="big-icon">🛒</div>
+    <h2>Tu carrito está vacío</h2>
+    <p>Agrega productos para continuar con tu compra.</p>
+    <a href="productos.html" class="btn-primary" style="display:inline-flex;margin:0 auto">Ver productos →</a>
+  </div>
+
+  <div class="checkout-layout" id="checkout-main">
+    <div>
+      <div class="checkout-card">
+        <h2><span>1</span> Productos en tu carrito</h2>
+        <div id="checkout-items"></div>
+        <div style="display:flex;justify-content:flex-end;margin-top:16px">
+          <button onclick="clearCart();renderCheckout()" style="color:var(--text2);font-size:.85rem;padding:8px 14px;border-radius:50px;border:1px solid var(--border);transition:all 200ms;" onmouseover="this.style.color='#FF4444';this.style.borderColor='#FF4444'" onmouseout="this.style.color='';this.style.borderColor=''">
+            🗑 Vaciar carrito
+          </button>
+        </div>
+      </div>
+
+      <div class="checkout-card">
+        <h2><span>2</span> Datos de entrega</h2>
+        <div class="form-group">
+          <label class="form-label" for="chk-name">Nombre completo *</label>
+          <input type="text" id="chk-name" class="form-input" placeholder="Ej: Carlos Rodríguez" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="chk-phone">Teléfono / WhatsApp *</label>
+          <input type="tel" id="chk-phone" class="form-input" placeholder="Ej: +503 7123 4567" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="chk-address">Dirección de entrega *</label>
+          <input type="text" id="chk-address" class="form-input" placeholder="Calle, número, colonia, ciudad" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="chk-notes">Notas adicionales (opcional)</label>
+          <input type="text" id="chk-notes" class="form-input" placeholder="Indicaciones especiales...">
+        </div>
+        <div id="chk-error" style="color:#FF4444;font-size:.85rem;margin-top:8px;display:none">
+          Por favor completa todos los campos requeridos.
+        </div>
+      </div>
+    </div>
+
+    <div class="order-summary-sticky">
+      <div class="checkout-card">
+        <h2><span>3</span> Resumen del pedido</h2>
+        <div id="order-summary-items"></div>
+        <div class="divider"></div>
+        <div class="total-row"><span>Subtotal</span><span id="subtotal">$0.00</span></div>
+        <div class="total-row"><span>Envío</span><span style="color:var(--green);font-weight:700">Gratis</span></div>
+        <div class="total-row final"><span>Total</span><span id="order-total">$0.00</span></div>
+        <button class="btn-confirm" id="btn-confirm" onclick="confirmOrder()">
+          <span>💬</span> Pedir por WhatsApp
+        </button>
+        <p style="font-size:.75rem;color:var(--text2);text-align:center;margin-top:12px;">
+          Serás redirigido a WhatsApp para confirmar tu pedido.
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="script.js"></script>
+<script src="layout.js"></script>
+<script>
+  function renderCheckout() {
+    const cart = getCart();
+    const checkoutMain = document.getElementById("checkout-main");
+    const emptyState   = document.getElementById("empty-state");
+
+    if (cart.length === 0) {
+      checkoutMain.style.display = "none";
+      emptyState.style.display   = "block";
+      return;
+    }
+    checkoutMain.style.display = "grid";
+    emptyState.style.display   = "none";
+
+    document.getElementById("checkout-items").innerHTML = cart.map(item => `
+      <div class="order-item">
+        <img src="${item.img}" alt="${item.name}" class="order-item-img">
+        <div class="order-item-info">
+          <div class="order-item-name">${item.name}</div>
+          <div class="order-item-detail">$${item.price.toFixed(2)} c/u</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:8px">
+            <button onclick="changeQty(${item.id},-1);renderCheckout()" style="width:26px;height:26px;border-radius:50%;background:var(--border);border:none;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 200ms;" onmouseover="this.style.background='var(--accent)';this.style.color='white'" onmouseout="this.style.background='';this.style.color=''">−</button>
+            <span style="font-weight:700;min-width:20px;text-align:center">${item.qty}</span>
+            <button onclick="changeQty(${item.id},1);renderCheckout()" style="width:26px;height:26px;border-radius:50%;background:var(--border);border:none;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 200ms;" onmouseover="this.style.background='var(--accent)';this.style.color='white'" onmouseout="this.style.background='';this.style.color=''">+</button>
+          </div>
+        </div>
+        <div class="order-item-price">$${(item.price * item.qty).toFixed(2)}</div>
+      </div>`).join("");
+
+    document.getElementById("order-summary-items").innerHTML = cart.map(item => `
+      <div class="order-item">
+        <img src="${item.img}" alt="${item.name}" class="order-item-img">
+        <div class="order-item-info">
+          <div class="order-item-name">${item.name}</div>
+          <div class="order-item-detail">Cantidad: ${item.qty}</div>
+        </div>
+        <div class="order-item-price">$${(item.price * item.qty).toFixed(2)}</div>
+      </div>`).join("");
+
+    const total = getCartTotal();
+    document.getElementById("subtotal").textContent    = `$${total.toFixed(2)}`;
+    document.getElementById("order-total").textContent = `$${total.toFixed(2)}`;
+  }
+
+  function confirmOrder() {
+    const name    = document.getElementById("chk-name").value.trim();
+    const phone   = document.getElementById("chk-phone").value.trim();
+    const address = document.getElementById("chk-address").value.trim();
+    const notes   = document.getElementById("chk-notes").value.trim();
+    const errEl   = document.getElementById("chk-error");
+
+    if (!name || !phone || !address) {
+      errEl.style.display = "block";
+      document.getElementById("chk-name").scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
+    errEl.style.display = "none";
+
+    const cart      = getCart();
+    const itemsText = cart.map(i => `  • ${i.name} x${i.qty} = $${(i.price * i.qty).toFixed(2)}`).join("\n");
+    const total     = getCartTotal().toFixed(2);
+
+    const msg = `🛒 *Nuevo Pedido — Comercial Ventura Reyes*\n\n` +
+      `👤 *Nombre:* ${name}\n` +
+      `📞 *Teléfono:* ${phone}\n` +
+      `📍 *Dirección:* ${address}\n` +
+      (notes ? `📝 *Notas:* ${notes}\n` : "") +
+      `\n*Productos:*\n${itemsText}\n\n` +
+      `💰 *Total: $${total}*\n\n` +
+      `_Pedido realizado desde Comercial Ventura Reyes_`;
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    clearCart();
+    updateCartBadge();
+    renderCartPanel();
+    window.open(url, "_blank");
+    setTimeout(() => renderCheckout(), 300);
+  }
+
+  renderCheckout();
+</script>
+</body>
+</html>

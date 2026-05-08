@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categorías — Comercial Ventura Reyes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main>
+  <div class="page-hero">
+    <h1>Todas las <span style="color:var(--accent)">Categorías</span></h1>
+    <p>Explora nuestra selección organizada por tipo de producto</p>
+  </div>
+
+  <div class="cat-full-grid" id="cat-full-grid"></div>
+</main>
+
+<script src="script.js"></script>
+<script src="layout.js"></script>
+<script>
+  const CAT_DESCRIPTIONS = {
+    "Bicicleta":         "Bicicletas para niños y adultos de todas las tallas.",
+    "Televisores":       "Pantallas y televisores de las mejores marcas.",
+    "Camas":             "Camas, cunas y colchonetas para tu descanso.",
+    "Muebles":           "Muebles y electrodomésticos para el hogar.",
+    "Muebles de madera": "Closets, comedores y muebles de madera.",
+    "Cocinas":           "Cocinas de mesa, horno y plancha.",
+    "Refrigeración":     "Refrigeradoras y freezers para tu hogar.",
+    "Audio":             "Equipos de sonido y audio.",
+  };
+
+  const grid = document.getElementById("cat-full-grid");
+  CATEGORIES.forEach((cat, i) => {
+    const count = PRODUCTS.filter(p => p.category === cat.id).length;
+    grid.innerHTML += `
+      <div class="cat-full-card fade-up" style="animation-delay:${i*0.06}s;border-color:${cat.color}22;"
+           onclick="goToCategory('${cat.id}')">
+        <div class="cat-full-icon">${cat.icon}</div>
+        <div class="cat-full-name">${cat.name}</div>
+        <div class="cat-full-desc">${CAT_DESCRIPTIONS[cat.id] || ""}</div>
+        <div class="cat-full-count">${count} productos disponibles</div>
+        <div class="cat-full-arrow">→</div>
+      </div>`;
+  });
+
+  function goToCategory(catId) {
+    localStorage.setItem("novaSelectedCat", catId);
+    location.href = "productos.html?cat=" + catId;
+  }
+</script>
+</body>
+</html>
