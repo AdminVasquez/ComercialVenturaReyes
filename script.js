@@ -186,16 +186,16 @@ const PRODUCTS = [
     variantes:[{color:"Blanco",img:"img/refri-frigidaire-blanco.jpg"},{color:"Plateado",img:"img/refri-frigidaire-plateado.jpg"}] },
 
   // ── TELEVISORES (sin variantes) ──
-  { id:86,  name:"Pantalla Coby 32",          price:450, category:"Televisores", img:"img/tv.jpg", desc:"Pantalla Coby 32 pulgadas",        disponible:true },
-  { id:87,  name:"Pantalla Hyundai 32 HYLED", price:600, category:"Televisores", img:"img/tv.jpg", desc:"Pantalla Hyundai 32 HYLED",        disponible:true },
-  { id:88,  name:"Pantalla Samsung 32 T4300", price:350, category:"Televisores", img:"img/tv.jpg", desc:"Pantalla Samsung 32 T4300",        disponible:true },
-  { id:89,  name:"Pantalla Samsung 32",       price:85,  category:"Televisores", img:"img/tv.jpg", desc:"Pantalla Samsung 32",              disponible:true },
-  { id:90,  name:"Pantalla Panasonic 32",     price:600, category:"Televisores", img:"img/tv.jpg", desc:"Pantalla Panasonic 32",            disponible:true },
-  { id:91,  name:"Pantalla SONY 43",          price:350, category:"Televisores", img:"img/tv.jpg", desc:"Pantalla SONY 43 pulgadas",        disponible:true },
-  { id:92,  name:"Pantalla LG 43",            price:85,  category:"Televisores", img:"img/tv.jpg", desc:"Pantalla LG 43 pulgadas",          disponible:true },
-  { id:93,  name:"Pantalla Samsung 50",       price:450, category:"Televisores", img:"img/tv.jpg", desc:"Pantalla Samsung 50 pulgadas",     disponible:true },
-  { id:94,  name:"Pantalla Samsung 65",       price:450, category:"Televisores", img:"img/tv.jpg", desc:"Pantalla Samsung 65 pulgadas",     disponible:true },
-  { id:95,  name:"Pantalla Challenger 19",    price:600, category:"Televisores", img:"img/tv.jpg", desc:"Pantalla Challenger 19 pulgadas",  disponible:true },
+  { id:86,  name:"Pantalla Coby 32",          price:450, category:"Televisores", img:"IMG/cobyde32pul.PNG ", desc:"Pantalla Coby 32 pulgadas",        disponible:true },
+  { id:87,  name:"Pantalla Hyundai 32 HYLED", price:600, category:"Televisores", img:"IMG/PantallaHyundau32pul.PNG", desc:"Pantalla Hyundai 32 HYLED",        disponible:true },
+  { id:88,  name:"Pantalla Samsung 32 T4300", price:350, category:"Televisores", img:"IMG/PantallaSamsung32T4300.PNG", desc:"Pantalla Samsung 32 T4300",        disponible:true },
+  { id:89,  name:"Pantalla Samsung 32",       price:85,  category:"Televisores", img:"IMG/PantallaSamsung32.PNG", desc:"Pantalla Samsung 32",              disponible:true },
+  { id:90,  name:"Pantalla Panasonic 32",     price:600, category:"Televisores", img:"IMG/PantallaPanasonic32.PNG", desc:"Pantalla Panasonic 32",            disponible:true },
+  { id:91,  name:"Pantalla SONY 43",          price:350, category:"Televisores", img:"IMG/PantallaSONY43.PNG", desc:"Pantalla SONY 43 pulgadas",        disponible:true },
+  { id:92,  name:"Pantalla LG 43",            price:85,  category:"Televisores", img:"IMG/PantallaLG43.PNG", desc:"Pantalla LG 43 pulgadas",          disponible:true },
+  { id:93,  name:"Pantalla Samsung 50",       price:450, category:"Televisores", img:"IMG/PantallaSamsung50.PNG", desc:"Pantalla Samsung 50 pulgadas",     disponible:true },
+  { id:94,  name:"Pantalla Samsung 65",       price:450, category:"Televisores", img:"IMG/PantallaSamsung65.PNG", desc:"Pantalla Samsung 65 pulgadas",     disponible:true },
+  { id:95,  name:"Pantalla Challenger 19",    price:600, category:"Televisores", img:"IMG/PantallaChallenger19.PNG", desc:"Pantalla Challenger 19 pulgadas",  disponible:true },
 ];
 
 // ─────────────────────────────────────────────
