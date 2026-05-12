@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle — Comercial Ventura Reyes</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .detalle-layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .detalle-img-wrap {
+      position: relative;
+      background: var(--surface2);
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 1;
+      border: 1.5px solid var(--border);
+    }
+    .detalle-img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      padding: 24px;
+      transition: transform 400ms ease;
+    }
+    .detalle-img:hover { transform: scale(1.04); }
+
+    .detalle-info { display: flex; flex-direction: column; gap: 16px; }
+    .detalle-cat {
+      display: inline-flex; align-items: center;
+      padding: 4px 12px;
+      background: var(--accent-bg);
+      color: var(--accent);
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      width: fit-content;
+    }
+    .detalle-name {
+      font-family: var(--font-head);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+    }
+    .detalle-price {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .detalle-desc {
+      font-size: 0.95rem;
+      color: var(--text2);
+      line-height: 1.8;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+    }
+
+    .variantes-wrap {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .variante-btn {
+      padding: 6px 14px;
+      border-radius: 50px;
+      border: 1.5px solid var(--border);
+      background: var(--surface2);
+      color: var(--text);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 200ms;
+    }
+    .variante-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .variante-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+    .detalle-actions { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+    .btn-wa-detalle {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 14px 24px;
+      border-radius: 50px;
+      background: #25D366;
+      color: white;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 200ms;
+      text-decoration: none;
+    }
+    .btn-wa-detalle:hover { background: #1ebe5a; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(37,211,102,.4); }
+    .btn-carrito-detalle {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 14px 24px;
+      border-radius: 50px;
+      background: var(--accent);
+      color: white;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: all 200ms;
+    }
+    .btn-carrito-detalle:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(245,130,10,.4); }
+    .btn-carrito-detalle:disabled {
+      background: var(--border);
+      color: var(--text2);
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    .sin-existencia-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px;
+      background: #FF44441A;
+      color: #FF4444;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--text2);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 8px 0;
+      transition: color 200ms;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    .back-btn:hover { color: var(--accent); }
+
+    @media (max-width: 700px) {
+      .detalle-layout { grid-template-columns: 1fr; gap: 24px; padding: 24px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<main>
+  <div style="max-width:1100px;margin:0 auto;padding:24px 24px 0;">
+    <button class="back-btn" onclick="history.back()">← Volver</button>
+  </div>
+
+  <div class="detalle-layout" id="detalle-layout">
+    <div style="text-align:center;padding:80px;color:var(--text2)">Cargando...</div>
+  </div>
+</main>
+
+<script src="script.js"></script>
+<script src="layout.js"></script>
+<script>
+  const params  = new URLSearchParams(location.search);
+  const prodId  = parseInt(params.get("id"));
+  const product = PRODUCTS.find(p => p.id === prodId);
+
+  if (!product) {
+    document.getElementById("detalle-layout").innerHTML = `
+      <div style="grid-column:1/-1;text-align:center;padding:80px 24px;color:var(--text2)">
+        <p style="font-size:3rem;margin-bottom:16px">😕</p>
+        <h2>Producto no encontrado</h2>
+        <a href="productos.html" class="btn-primary" style="display:inline-flex;margin-top:20px">Ver productos →</a>
+      </div>`;
+  } else {
+    document.title = `${product.name} — Comercial Ventura Reyes`;
+
+    const variantesHTML = product.variantes && product.variantes.length > 0
+      ? `<div>
+          <p style="font-size:0.82rem;font-weight:700;color:var(--text2);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">Color / Modelo</p>
+          <div class="variantes-wrap">
+            ${product.variantes.map((v, vi) => `
+              <button class="variante-btn ${vi === 0 ? 'active' : ''}"
+                onclick="cambiarVariante('${v.img}', this)">
+                ${v.color}
+              </button>`).join("")}
+          </div>
+        </div>`
+      : "";
+
+    const accionHTML = product.disponible
+      ? `<button class="btn-carrito-detalle" onclick="addToCart(${product.id})">🛒 Agregar al carrito</button>`
+      : `<div class="sin-existencia-badge">❌ Sin existencia por el momento</div>`;
+
+    const msgWA = encodeURIComponent(
+      `👋 Hola, me interesa el producto:\n\n*${product.name}*\nPrecio: $${product.price.toFixed(2)}\n\n¿Está disponible?`
+    );
+
+    document.getElementById("detalle-layout").innerHTML = `
+      <div class="detalle-img-wrap">
+        <img id="detalle-img-main" src="${product.img}" alt="${product.name}" class="detalle-img">
+      </div>
+      <div class="detalle-info">
+        <span class="detalle-cat">${product.category}</span>
+        <h1 class="detalle-name">${product.name}</h1>
+        <div class="detalle-price">$${product.price.toFixed(2)}</div>
+        <p class="detalle-desc">${product.desc}</p>
+        ${variantesHTML}
+        <div class="detalle-actions">
+          ${accionHTML}
+          <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${msgWA}"
+             target="_blank" class="btn-wa-detalle">
+            💬 Consultar por WhatsApp
+          </a>
+        </div>
+      </div>`;
+  }
+
+  function cambiarVariante(img, btn) {
+    document.getElementById("detalle-img-main").src = img;
+    document.querySelectorAll(".variante-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+  }
+</script>
+</body>
+</html>

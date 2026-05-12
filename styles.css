@@ -317,3 +317,14 @@ footer { background: var(--surface); border-top: 1px solid var(--border); paddin
 .logo-oscuro { display: none; }
 [data-theme="dark"] .logo-claro  { display: none !important; }
 [data-theme="dark"] .logo-oscuro { display: block !important; }
+
+.btn-wa-card {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  width: 100%; padding: 9px 12px; margin-top: 8px;
+  border-radius: 50px; background: #25D366;
+  color: white; font-size: 0.78rem; font-weight: 700;
+  text-decoration: none; transition: all 200ms;
+}
+.btn-wa-card:hover { background: #1ebe5a; transform: translateY(-1px); }
+.product-img-wrap { cursor: pointer; }
+.product-name { cursor: pointer; }

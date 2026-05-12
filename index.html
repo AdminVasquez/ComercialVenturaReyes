@@ -5,6 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Comercial Ventura Reyes — Tecnología Premium</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .btn-wa-card {
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      width: 100%; padding: 9px 12px;
+      border-radius: 50px; background: #25D366;
+      color: white; font-size: 0.78rem; font-weight: 700;
+      border: none; cursor: pointer;
+      transition: all 200ms; margin-top: 8px;
+      text-decoration: none;
+    }
+    .btn-wa-card:hover { background: #1ebe5a; transform: translateY(-1px); }
+    .product-img-wrap { cursor: pointer; }
+    .product-name { cursor: pointer; }
+    .product-name:hover { color: var(--accent); }
+  </style>
 </head>
 <body>
 
@@ -81,7 +96,7 @@
         <h2 style="font-family:var(--font-head);color:white;font-size:1.8rem;letter-spacing:-0.5px;margin-bottom:8px;">¿Tienes dudas?<br>Escríbenos por WhatsApp</h2>
         <p style="color:rgba(255,255,255,.8);font-size:.95rem;">Nuestro equipo responde en minutos 💬</p>
       </div>
-      <a href="contacto.html" style="padding:14px 28px;border-radius:50px;background:rgb(241, 241, 241);color:#1E6FE8;font-weight:700;font-size:.95rem;transition:all 200ms;white-space:nowrap;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">Contáctanos →</a>
+      <a href="contacto.html" style="padding:14px 28px;border-radius:50px;background:rgb(241,241,241);color:#1E6FE8;font-weight:700;font-size:.95rem;transition:all 200ms;white-space:nowrap;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">Contáctanos →</a>
     </div>
   </section>
 
@@ -105,19 +120,26 @@
   // Renderizar productos destacados (primeros 8)
   const prodGrid = document.getElementById("home-product-grid");
   PRODUCTS.slice(0, 8).forEach((p, i) => {
+    const msgWA = encodeURIComponent(
+      `👋 Hola, me interesa:\n\n*${p.name}*\nPrecio: $${p.price.toFixed(2)}\n\n¿Está disponible?`
+    );
     prodGrid.innerHTML += `
       <div class="product-card fade-up fade-up-${(i % 4) + 1}">
-        <div class="product-img-wrap">
+        <div class="product-img-wrap" onclick="location.href='producto-detalle.html?id=${p.id}'">
           <img src="${p.img}" alt="${p.name}" class="product-img" loading="lazy">
           <span class="product-cat-badge">${p.category}</span>
         </div>
         <div class="product-body">
-          <h3 class="product-name">${p.name}</h3>
+          <h3 class="product-name" onclick="location.href='producto-detalle.html?id=${p.id}'">${p.name}</h3>
           <p class="product-desc">${p.desc}</p>
           <div class="product-footer">
             <span class="product-price">$${p.price.toFixed(2)}</span>
             ${renderAddButton(p)}
           </div>
+          <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${msgWA}"
+             target="_blank" class="btn-wa-card">
+            💬 Consultar por WhatsApp
+          </a>
         </div>
       </div>`;
   });
