@@ -63,9 +63,7 @@
       padding-top: 16px;
     }
 
-    .variantes-wrap {
-      display: flex; flex-wrap: wrap; gap: 8px;
-    }
+    .variantes-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
     .variante-btn {
       padding: 6px 14px;
       border-radius: 50px;
@@ -79,6 +77,20 @@
     }
     .variante-btn:hover { border-color: var(--accent); color: var(--accent); }
     .variante-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+    /* Variante sin existencia: gris y tachada */
+    .variante-btn.variante-no-disponible {
+      background: var(--surface2);
+      color: var(--text2);
+      text-decoration: line-through;
+      opacity: 0.55;
+      cursor: not-allowed;
+      border-color: var(--border);
+    }
+    .variante-btn.variante-no-disponible:hover {
+      border-color: var(--border);
+      color: var(--text2);
+    }
 
     .detalle-actions { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
     .btn-wa-detalle {
@@ -108,13 +120,6 @@
       transition: all 200ms;
     }
     .btn-carrito-detalle:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(245,130,10,.4); }
-    .btn-carrito-detalle:disabled {
-      background: var(--border);
-      color: var(--text2);
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
-    }
     .sin-existencia-badge {
       display: inline-flex; align-items: center; gap: 6px;
       padding: 8px 16px;
@@ -174,13 +179,7 @@
     const variantesHTML = product.variantes && product.variantes.length > 0
       ? `<div>
           <p style="font-size:0.82rem;font-weight:700;color:var(--text2);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">Color / Modelo</p>
-          <div class="variantes-wrap">
-            ${product.variantes.map((v, vi) => `
-              <button class="variante-btn ${vi === 0 ? 'active' : ''}"
-                onclick="cambiarVariante('${v.img}', this)">
-                ${v.color}
-              </button>`).join("")}
-          </div>
+          ${renderVariantButtons(product, "cambiarVariante")}
         </div>`
       : "";
 
@@ -212,7 +211,8 @@
       </div>`;
   }
 
-  function cambiarVariante(img, btn) {
+  // Cambia la imagen al elegir una variante DISPONIBLE (definida en script.js usa esta como callback)
+  function cambiarVariante(productId, img, btn) {
     document.getElementById("detalle-img-main").src = img;
     document.querySelectorAll(".variante-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");

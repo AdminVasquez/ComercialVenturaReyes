@@ -10,33 +10,33 @@
 // ─────────────────────────────────────────────
 const PRODUCTS = [
   // ── BICICLETAS ──
-  { id:1,   name:"Bicicleta Corsario #12 Cross",                 price:450, category:"Bicicleta", img:"img/bici-cross12.jpg",    desc:"Bicicleta cross aro 12",      disponible:true,
-    variantes:[{color:"Rojo",img:"img/bici-cross12-rojo.jpg"},{color:"Azul",img:"img/bici-cross12-azul.jpg"},{color:"Amarillo",img:"img/bici-cross12-amarillo.jpg"}] },
-  { id:2,   name:"Bicicleta Corsario #16 Cross",                 price:600, category:"Bicicleta", img:"img/bici-cross16.jpg",    desc:"Bicicleta cross aro 16",      disponible:true,
-    variantes:[{color:"Rojo",img:"img/bici-cross16-rojo.jpg"},{color:"Azul",img:"img/bici-cross16-azul.jpg"},{color:"Verde",img:"img/bici-cross16-verde.jpg"}] },
-  { id:3,   name:"Bicicleta Corsario #12 Cherry",                price:350, category:"Bicicleta", img:"img/bici-cherry12.jpg",   desc:"Bicicleta cherry aro 12",     disponible:true,
-    variantes:[{color:"Rojo",img:"img/bici-cherry12-rojo.jpg"},{color:"Rosado",img:"img/bici-cherry12-rosado.jpg"}] },
-  { id:4,   name:"Bicicleta Corsario #16 Cherry",                price:85,  category:"Bicicleta", img:"img/bici-cherry16.jpg",   desc:"Bicicleta cherry aro 16",     disponible:true,
-    variantes:[{color:"Rojo",img:"img/bici-cherry16-rojo.jpg"},{color:"Rosado",img:"img/bici-cherry16-rosado.jpg"}] },
-  { id:5,   name:"Bicicleta Corsario #16 Princess",              price:450, category:"Bicicleta", img:"img/bici-princess16.jpg", desc:"Bicicleta princess aro 16",   disponible:true,
-    variantes:[{color:"Rosado",img:"img/bici-princess16-rosado.jpg"},{color:"Morado",img:"img/bici-princess16-morado.jpg"}] },
-  { id:6,   name:"Bicicleta Corsario #20 Scale niño",            price:600, category:"Bicicleta", img:"img/bici-scale20n.jpg",   desc:"Bicicleta scale niño aro 20", disponible:true,
-    variantes:[{color:"Azul",img:"img/bici-scale20n-azul.jpg"},{color:"Rojo",img:"img/bici-scale20n-rojo.jpg"},{color:"Negro",img:"img/bici-scale20n-negro.jpg"}] },
+  { id:1,   name:"Bicicleta Corsario #12 Cross",                 price:78, category:"Bicicleta", img:"IMG/Bicicletas/crosRojo12.png",    desc:"Bicicleta cross aro 16",      disponible:true,
+    variantes:[{color:"Rojo",img:"IMG/Bicicletas/crosRojo12.png",disponible:true},{color:"Azul",img:"IMG/Bicicletas/crosAzul12.png",disponible:true},{color:"Amarillo",img:"IMG/Bicicletas/crosAmarillo12.png",disponible:true}, {color:"Anaranjado",img:"IMG/Bicicletas/crosNaranja12.png",disponible:true}] },
+  { id:2,   name:"Bicicleta Corsario #16 Cross",                 price:88, category:"Bicicleta", img:"IMG/Bicicletas/crosRojo.png",    desc:"Bicicleta cross aro 12",      disponible:true,
+    variantes:[{color:"Rojo",img:"IMG/Bicicletas/crosRojo.png",disponible:true},{color:"Azul",img:"IMG/Bicicletas/crosAzul.png",disponible:true},{color:"Verde",img:"IMG/Bicicletas/crosVerde.png",disponible:true},{color:"Amarillo",img:"IMG/Bicicletas/crosAmarilla.png",disponible:true}, {color:"Anaranjado",img:"IMG/Bicicletas/crosNaranja.png",disponible:true}] },
+  { id:3,   name:"Bicicleta Corsario #12 Cherry",                price:350, category:"Bicicleta", img:"IMG/Bicicletas/cherryVerdeAqua12.png",   desc:"Bicicleta cherry aro 12",     disponible:true,
+    variantes:[{color:"Verde Aqua",img:"IMG/Bicicletas/cherryVerdeAqua12.png",disponible:true},{color:"Morado",img:"IMG/Bicicletas/cherryMorado12.png",disponible:true}, {color:"Rosado",img:"IMG/Bicicletas/CherryRosado12.png",disponible:true}, {color:"Rosado con morado",img:"IMG/Bicicletas/cherryMR12.png",disponible:true}] },
+  { id:4,   name:"Bicicleta Corsario #16 Cherry",                price:85,  category:"Bicicleta", img:"IMG/Bicicletas/cherryVerdeAqua16.png",   desc:"Bicicleta cherry aro 16",     disponible:true,
+    variantes:[{color:"Verde Aqua",img:"IMG/Bicicletas/cherryVerdeAqua16.png",disponible:true},{color:"Morado",img:"IMG/Bicicletas/cherryMorado16.png",disponible:true}, {color:"Rosado",img:"IMG/Bicicletas/cherryRosado16.png",disponible:true}, {color:"Rosado y morado",img:"IMG/Bicicletas/cherryRM16.png",disponible:true}] },
+  { id:5,   name:"Bicicleta Corsario #16 Princess",              price:450, category:"Bicicleta", img:"IMG/Bicicletas/princessVerdeAqua16.png", desc:"Bicicleta princess aro 16",   disponible:true,
+    variantes:[{color:"Verde Aqua",img:"IMG/Bicicletas/princessVerdeAqua16.png",disponible:true},{color:"Rosado",img:"IMG/Bicicletas/princessRosada16.png",disponible:true}, {color:"Morado y rosado",img:"IMG/Bicicletas/princessRM16.png",disponible:true}, ] },
+  { id:6,   name:"Bicicleta Corsario #20 Scale niño",            price:600, category:"Bicicleta", img:"IMG/Bicicletas/scaleniño20azulo.png",   desc:"Bicicleta scale niño aro 20", disponible:true,
+    variantes:[{color:"Azul",img:"IMG/Bicicletas/scaleniño20azulo.png",disponible:true},{color:"Rojo",img:"IMG/Bicicletas/scaleniñorojo20.png",disponible:true},{color:"Azul y verde",img:"IMG/Bicicletas/scaleniño20azul.png",disponible:true}, {color:"verde",img:"IMG/Bicicletas/scaleniñoverde20.png",disponible:true}] },
   { id:7,   name:"Bicicleta Corsario #20 Scale niña",            price:350, category:"Bicicleta", img:"img/bici-scale20f.jpg",   desc:"Bicicleta scale niña aro 20", disponible:true,
-    variantes:[{color:"Rosado",img:"img/bici-scale20f-rosado.jpg"},{color:"Morado",img:"img/bici-scale20f-morado.jpg"}] },
+    variantes:[{color:"Rosado",img:"img/bici-scale20f-rosado.jpg",disponible:true},{color:"Morado",img:"img/bici-scale20f-morado.jpg",disponible:true}] },
   { id:8,   name:"Bicicleta Corsario #20 Fox",                   price:85,  category:"Bicicleta", img:"img/bici-fox20.jpg",      desc:"Bicicleta fox aro 20",        disponible:true,
-    variantes:[{color:"Negro",img:"img/bici-fox20-negro.jpg"},{color:"Rojo",img:"img/bici-fox20-rojo.jpg"}] },
+    variantes:[{color:"Negro",img:"img/bici-fox20-negro.jpg",disponible:true},{color:"Rojo",img:"img/bici-fox20-rojo.jpg",disponible:true}] },
   { id:9,   name:"Bicicleta Corsario #24 Doble suspension",      price:450, category:"Bicicleta", img:"img/bici-ds24.jpg",       desc:"Doble suspensión aro 24",     disponible:true,
-    variantes:[{color:"Negro",img:"img/bici-ds24-negro.jpg"},{color:"Azul",img:"img/bici-ds24-azul.jpg"}] },
+    variantes:[{color:"Negro",img:"img/bici-ds24-negro.jpg",disponible:true},{color:"Azul",img:"img/bici-ds24-azul.jpg",disponible:true}] },
   { id:10,  name:"Bicicleta Corsario #24 Tracker",               price:600, category:"Bicicleta", img:"img/bici-tracker24.jpg",  desc:"Tracker aro 24",              disponible:true,
-    variantes:[{color:"Negro",img:"img/bici-tracker24-negro.jpg"},{color:"Rojo",img:"img/bici-tracker24-rojo.jpg"}] },
+    variantes:[{color:"Negro",img:"img/bici-tracker24-negro.jpg",disponible:true},{color:"Rojo",img:"img/bici-tracker24-rojo.jpg",disponible:true}] },
   { id:11,  name:"Bicicleta Corsario #26 Tracker",               price:350, category:"Bicicleta", img:"img/bici-tracker26.jpg",  desc:"Tracker aro 26",              disponible:true,
-    variantes:[{color:"Negro",img:"img/bici-tracker26-negro.jpg"},{color:"Azul",img:"img/bici-tracker26-azul.jpg"}] },
+    variantes:[{color:"Negro",img:"img/bici-tracker26-negro.jpg",disponible:true},{color:"Azul",img:"img/bici-tracker26-azul.jpg",disponible:true}] },
   { id:12,  name:"Bicicleta Corsario BMX XTC Cromada",           price:85,  category:"Bicicleta", img:"img/bici-bmx-cromada.jpg",desc:"BMX XTC cromada",             disponible:true },
   { id:13,  name:"Bicicleta Corsario BMX XTC Color",             price:450, category:"Bicicleta", img:"img/bici-bmx-color.jpg",  desc:"BMX XTC a color",             disponible:true,
-    variantes:[{color:"Rojo",img:"img/bici-bmx-rojo.jpg"},{color:"Azul",img:"img/bici-bmx-azul.jpg"},{color:"Verde",img:"img/bici-bmx-verde.jpg"}] },
+    variantes:[{color:"Rojo",img:"img/bici-bmx-rojo.jpg",disponible:true},{color:"Azul",img:"img/bici-bmx-azul.jpg",disponible:true},{color:"Verde",img:"img/bici-bmx-verde.jpg",disponible:true}] },
   { id:138, name:"Bicicleta Corsario #20 Princess",              price:450, category:"Bicicleta", img:"img/bici-princess20.jpg", desc:"Princess aro 20",             disponible:true,
-    variantes:[{color:"Rosado",img:"img/bici-princess20-rosado.jpg"},{color:"Morado",img:"img/bici-princess20-morado.jpg"}] },
+    variantes:[{color:"Rosado",img:"img/bici-princess20-rosado.jpg",disponible:true},{color:"Morado",img:"img/bici-princess20-morado.jpg",disponible:true}] },
 
   // ── MUEBLES (sin variantes) ──
   { id:14,  name:"Bateria Unique Regina",                        price:450, category:"Muebles", img:"img/tv.jpg", desc:"Batería de cocina Regina",          disponible:true },
@@ -47,7 +47,8 @@ const PRODUCTS = [
   { id:19,  name:"Carro Ride On Car Baby Pro",                   price:350, category:"Muebles", img:"img/tv.jpg", desc:"Ride On Car Baby Pro",              disponible:true },
   { id:20,  name:"Cafetera Black+Decker",                        price:85,  category:"Muebles", img:"img/tv.jpg", desc:"Cafetera Black+Decker",             disponible:true },
   { id:59,  name:"Gabetero madera 7 Gabetas",                    price:350, category:"Muebles", img:"img/tv.jpg", desc:"Gabetero de madera 7 gavetas",      disponible:true },
-  { id:60,  name:"Gabetero Sanchia 5 Eterno",                    price:85,  category:"Muebles", img:"img/tv.jpg", desc:"Gabetero Sanchia 5 niveles",        disponible:true },
+  { id:60,  name:"Gabetero Sanchia 5 Eterno",                    price:85,  category:"Muebles", img:"img/tv.jpg", desc:"Gabetero Sanchia 5 niveles",        disponible:true,
+    variantes:[{color:"Blanco",img:"img/cocina-ecocina2-blanco.jpg",disponible:true},{color:"Negro",img:"img/cocina-ecocina2-negro.jpg",disponible:true}] },
   { id:61,  name:"Gabetero Sanchia 4 Niveles",                   price:450, category:"Muebles", img:"img/tv.jpg", desc:"Gabetero Sanchia 4 niveles",        disponible:true },
   { id:62,  name:"Gabetero Sanchia Con espejo",                  price:450, category:"Muebles", img:"img/tv.jpg", desc:"Gabetero Sanchia con espejo",       disponible:true },
   { id:63,  name:"Gabetero Lava mano Sanchia",                   price:600, category:"Muebles", img:"img/tv.jpg", desc:"Gabetero lava mano Sanchia",        disponible:true },
@@ -129,25 +130,25 @@ const PRODUCTS = [
 
   // ── COCINAS (con variantes) ──
   { id:38,  name:"Cocina de mesa Ecocina 2 Quemadores",          price:450, category:"Cocinas", img:"img/cocina-ecocina2.jpg",   desc:"Cocina mesa Ecocina 2 quemadores", disponible:true,
-    variantes:[{color:"Blanco",img:"img/cocina-ecocina2-blanco.jpg"},{color:"Negro",img:"img/cocina-ecocina2-negro.jpg"}] },
+    variantes:[{color:"Blanco",img:"img/cocina-ecocina2-blanco.jpg",disponible:true},{color:"Negro",img:"img/cocina-ecocina2-negro.jpg",disponible:true}] },
   { id:39,  name:"Cocina de mesa Ecocina Acero 2 Quemadores",    price:600, category:"Cocinas", img:"img/cocina-ecocina-acero.jpg",desc:"Ecocina acero 2 quemadores",       disponible:true,
-    variantes:[{color:"Plateado",img:"img/cocina-ecocina-acero.jpg"},{color:"Negro",img:"img/cocina-ecocina-acero-negro.jpg"}] },
+    variantes:[{color:"Plateado",img:"img/cocina-ecocina-acero.jpg",disponible:true},{color:"Negro",img:"img/cocina-ecocina-acero-negro.jpg",disponible:true}] },
   { id:40,  name:"Cocina de mesa Ecocina 4 Quemadores",          price:350, category:"Cocinas", img:"img/cocina-ecocina4.jpg",   desc:"Ecocina mesa 4 quemadores",        disponible:true,
-    variantes:[{color:"Blanco",img:"img/cocina-ecocina4-blanco.jpg"},{color:"Negro",img:"img/cocina-ecocina4-negro.jpg"}] },
+    variantes:[{color:"Blanco",img:"img/cocina-ecocina4-blanco.jpg",disponible:true},{color:"Negro",img:"img/cocina-ecocina4-negro.jpg",disponible:true}] },
   { id:41,  name:"Cocina de mesa IML 4 Quemadores",              price:85,  category:"Cocinas", img:"img/cocina-iml.jpg",        desc:"Cocina IML 4 quemadores",          disponible:true },
   { id:42,  name:"Cocina de Gabinete IML 4 Quemadores",          price:600, category:"Cocinas", img:"img/cocina-iml-gab.jpg",    desc:"Cocina gabinete IML",              disponible:true },
   { id:43,  name:"Cocina de horno Ferrer 4 Quemadores",          price:350, category:"Cocinas", img:"img/cocina-ferrer.jpg",     desc:"Cocina horno Ferrer",              disponible:true,
-    variantes:[{color:"Blanco",img:"img/cocina-ferrer-blanco.jpg"},{color:"Negro",img:"img/cocina-ferrer-negro.jpg"}] },
+    variantes:[{color:"Blanco",img:"img/cocina-ferrer-blanco.jpg",disponible:true},{color:"Negro",img:"img/cocina-ferrer-negro.jpg",disponible:true}] },
   { id:44,  name:"Cocina de horno Dale 4 Quemadores",            price:85,  category:"Cocinas", img:"img/cocina-dale.jpg",       desc:"Cocina horno Dale",                disponible:true,
-    variantes:[{color:"Blanco",img:"img/cocina-dale-blanco.jpg"},{color:"Gris",img:"img/cocina-dale-gris.jpg"}] },
+    variantes:[{color:"Blanco",img:"img/cocina-dale-blanco.jpg",disponible:true},{color:"Gris",img:"img/cocina-dale-gris.jpg",disponible:true}] },
   { id:45,  name:"Cocina de horno Chellenger 4 Quemadores",      price:450, category:"Cocinas", img:"img/cocina-challenger.jpg", desc:"Cocina horno Challenger",          disponible:true,
-    variantes:[{color:"Blanco",img:"img/cocina-challenger-blanco.jpg"},{color:"Negro",img:"img/cocina-challenger-negro.jpg"}] },
+    variantes:[{color:"Blanco",img:"img/cocina-challenger-blanco.jpg",disponible:true},{color:"Negro",img:"img/cocina-challenger-negro.jpg",disponible:true}] },
   { id:46,  name:"Cocina de horno MABE 4 Quemadores negra/gris", price:450, category:"Cocinas", img:"img/cocina-mabe4.jpg",      desc:"Cocina horno MABE 4 quemadores",   disponible:true,
-    variantes:[{color:"Negro",img:"img/cocina-mabe4-negro.jpg"},{color:"Gris",img:"img/cocina-mabe4-gris.jpg"}] },
+    variantes:[{color:"Negro",img:"img/cocina-mabe4-negro.jpg",disponible:true},{color:"Gris",img:"img/cocina-mabe4-gris.jpg",disponible:true}] },
   { id:47,  name:"Cocina de horno MABE 6 Quemadores",            price:600, category:"Cocinas", img:"img/cocina-mabe6.jpg",      desc:"Cocina horno MABE 6 quemadores",   disponible:true,
-    variantes:[{color:"Negro",img:"img/cocina-mabe6-negro.jpg"},{color:"Gris",img:"img/cocina-mabe6-gris.jpg"}] },
+    variantes:[{color:"Negro",img:"img/cocina-mabe6-negro.jpg",disponible:true},{color:"Gris",img:"img/cocina-mabe6-gris.jpg",disponible:true}] },
   { id:48,  name:"Cocina de horno Cetron 6 Quemadores",          price:350, category:"Cocinas", img:"img/cocina-cetron.jpg",     desc:"Cocina horno Cetron 6 quemadores", disponible:true,
-    variantes:[{color:"Blanco",img:"img/cocina-cetron-blanco.jpg"},{color:"Negro",img:"img/cocina-cetron-negro.jpg"}] },
+    variantes:[{color:"Blanco",img:"img/cocina-cetron-blanco.jpg",disponible:true},{color:"Negro",img:"img/cocina-cetron-negro.jpg",disponible:true}] },
   { id:49,  name:"Cocina de plancha Llama Azul 0.80 Metro",      price:85,  category:"Cocinas", img:"img/cocina-plancha80.jpg",  desc:"Plancha Llama Azul 0.80m",         disponible:true },
   { id:50,  name:"Cocina de plancha Llama Azul 1 Metro",         price:600, category:"Cocinas", img:"img/cocina-plancha1.jpg",   desc:"Plancha Llama Azul 1m",            disponible:true },
   { id:51,  name:"Cocina de plancha Llama Azul 1.30 Metro",      price:350, category:"Cocinas", img:"img/cocina-plancha130.jpg", desc:"Plancha Llama Azul 1.30m",         disponible:true },
@@ -161,29 +162,29 @@ const PRODUCTS = [
   // ── REFRIGERACIÓN (con variantes) ──
   { id:52,  name:"Dispensador de agua Oster",                    price:85,  category:"Refrigeración", img:"img/tv.jpg", desc:"Dispensador de agua Oster", disponible:true },
   { id:56,  name:"Frezzer MABE 15 Pies",                         price:350, category:"Refrigeración", img:"img/freezer-mabe15.jpg",    desc:"Freezer MABE 15 pies",     disponible:true,
-    variantes:[{color:"Blanco",img:"img/freezer-mabe15-blanco.jpg"},{color:"Plateado",img:"img/freezer-mabe15-plateado.jpg"}] },
+    variantes:[{color:"Blanco",img:"img/freezer-mabe15-blanco.jpg",disponible:true},{color:"Plateado",img:"img/freezer-mabe15-plateado.jpg",disponible:true}] },
   { id:57,  name:"Frezzer Frigidaire 9 Pies",                    price:85,  category:"Refrigeración", img:"img/freezer-frig9.jpg",     desc:"Freezer Frigidaire 9 pies", disponible:true,
-    variantes:[{color:"Blanco",img:"img/freezer-frig9-blanco.jpg"},{color:"Plateado",img:"img/freezer-frig9-plateado.jpg"}] },
+    variantes:[{color:"Blanco",img:"img/freezer-frig9-blanco.jpg",disponible:true},{color:"Plateado",img:"img/freezer-frig9-plateado.jpg",disponible:true}] },
   { id:96,  name:"Refrigeradora LG VT",                          price:350, category:"Refrigeración", img:"img/refri-lg-vt.jpg",       desc:"Refrigeradora LG VT",      disponible:true,
-    variantes:[{color:"Plateado",img:"img/refri-lg-vt-plateado.jpg"},{color:"Negro",img:"img/refri-lg-vt-negro.jpg"}] },
+    variantes:[{color:"Plateado",img:"img/refri-lg-vt-plateado.jpg",disponible:true},{color:"Negro",img:"img/refri-lg-vt-negro.jpg",disponible:true}] },
   { id:97,  name:"Refrigeradora LG GT",                          price:85,  category:"Refrigeración", img:"img/refri-lg-gt.jpg",       desc:"Refrigeradora LG GT",      disponible:true,
-    variantes:[{color:"Plateado",img:"img/refri-lg-gt-plateado.jpg"},{color:"Negro",img:"img/refri-lg-gt-negro.jpg"}] },
+    variantes:[{color:"Plateado",img:"img/refri-lg-gt-plateado.jpg",disponible:true},{color:"Negro",img:"img/refri-lg-gt-negro.jpg",disponible:true}] },
   { id:98,  name:"Refrigeradora MIDEA",                          price:600, category:"Refrigeración", img:"img/refri-midea.jpg",       desc:"Refrigeradora MIDEA",      disponible:true,
-    variantes:[{color:"Blanco",img:"img/refri-midea-blanco.jpg"},{color:"Plateado",img:"img/refri-midea-plateado.jpg"}] },
+    variantes:[{color:"Blanco",img:"img/refri-midea-blanco.jpg",disponible:true},{color:"Plateado",img:"img/refri-midea-plateado.jpg",disponible:true}] },
   { id:99,  name:"Refrigeradora CyL CL-200",                     price:350, category:"Refrigeración", img:"img/refri-cyl200.jpg",      desc:"Refrigeradora CyL CL-200", disponible:true,
-    variantes:[{color:"Blanco",img:"img/refri-cyl200-blanco.jpg"},{color:"Plateado",img:"img/refri-cyl200-plateado.jpg"}] },
+    variantes:[{color:"Blanco",img:"img/refri-cyl200-blanco.jpg",disponible:true},{color:"Plateado",img:"img/refri-cyl200-plateado.jpg",disponible:true}] },
   { id:100, name:"Refrigeradora CyL CL-89",                      price:85,  category:"Refrigeración", img:"img/refri-cyl89.jpg",       desc:"Refrigeradora CyL CL-89",  disponible:true,
-    variantes:[{color:"Blanco",img:""},{color:"Plateado",img:"img/refri-cyl89-plateado.jpg"}] },
+    variantes:[{color:"Blanco",img:"",disponible:true},{color:"Plateado",img:"img/refri-cyl89-plateado.jpg",disponible:true}] },
   { id:101, name:"Refrigeradora MABE",                           price:450, category:"Refrigeración", img:"img/refri-mabe.jpg",        desc:"Refrigeradora MABE",       disponible:true,
-    variantes:[{color:"Blanco",img:""},{color:"Plateado",img:"img/refri-mabe-plateado.jpg"}] },
+    variantes:[{color:"Blanco",img:"",disponible:true},{color:"Plateado",img:"img/refri-mabe-plateado.jpg",disponible:true}] },
   { id:102, name:"Refrigeradora Oster",                          price:450, category:"Refrigeración", img:"img/refri-oster.jpg",       desc:"Refrigeradora Oster",      disponible:true,
-    variantes:[{color:"Blanco",img:""},{color:"Plateado",img:"img/refri-oster-plateado.jpg"}] },
+    variantes:[{color:"Blanco",img:"",disponible:true},{color:"Plateado",img:"img/refri-oster-plateado.jpg",disponible:true}] },
   { id:103, name:"Refrigeradora Indurama",                       price:600, category:"Refrigeración", img:"img/refri-indurama.jpg",    desc:"Refrigeradora Indurama",   disponible:true,
-    variantes:[{color:"Blanco",img:""},{color:"Plateado",img:"img/refri-indurama-plateado.jpg"}] },
+    variantes:[{color:"Blanco",img:"",disponible:true},{color:"Plateado",img:"img/refri-indurama-plateado.jpg",disponible:true}] },
   { id:104, name:"Refrigeradora Cetron",                         price:350, category:"Refrigeración", img:"img/refri-cetron.jpg",      desc:"Refrigeradora Cetron",     disponible:true,
-    variantes:[{color:"Blanco",img:""},{color:"Plateado",img:"img/refri-cetron-plateado.jpg"}] },
+    variantes:[{color:"Blanco",img:"",disponible:true},{color:"Plateado",img:"img/refri-cetron-plateado.jpg",disponible:true}] },
   { id:105, name:"Refrigeradora Frigidaire",                     price:85,  category:"Refrigeración", img:"img/refri-frigidaire.jpg",  desc:"Refrigeradora Frigidaire", disponible:true,
-    variantes:[{color:"Blanco",img:""},{color:"Plateado",img:"img/refri-frigidaire-plateado.jpg"}] },
+    variantes:[{color:"Blanco",img:"",disponible:true},{color:"Plateado",img:"img/refri-frigidaire-plateado.jpg",disponible:true}] },
 
   // ── TELEVISORES (sin variantes) ──
   { id:86,  name:"Pantalla Coby 32",          price:450, category:"Televisores", img:"IMG/cobyde32pul.png ", desc:"Pantalla Coby 32 pulgadas",        disponible:true },
@@ -322,6 +323,43 @@ function renderAddButton(product) {
   } else {
     return `<span style="font-size:0.75rem;font-weight:700;color:#FF4444;background:#FF44441A;padding:4px 10px;border-radius:50px;white-space:nowrap;">Sin existencia</span>`;
   }
+}
+
+// ─────────────────────────────────────────────
+// BOTONES DE VARIANTES (colores)
+// Si una variante tiene disponible:false, se muestra
+// gris/tachada y al hacer clic avisa que no hay stock
+// en lugar de cambiar la imagen.
+// ─────────────────────────────────────────────
+function renderVariantButtons(product, onClickFnName) {
+  if (!product.variantes || product.variantes.length === 0) return "";
+  return `<div class="variantes-wrap">
+    ${product.variantes.map((v, vi) => {
+      const noDisp = v.disponible === false;
+      const cls = `variante-btn ${vi === 0 && !noDisp ? 'active' : ''} ${noDisp ? 'variante-no-disponible' : ''}`;
+      const click = noDisp
+        ? `event.stopPropagation();avisarVarianteNoDisponible('${v.color}')`
+        : `event.stopPropagation();${onClickFnName}(${product.id},'${v.img}',this)`;
+      return `<button class="${cls}" onclick="${click}">${v.color}</button>`;
+    }).join("")}
+  </div>`;
+}
+
+function avisarVarianteNoDisponible(color) {
+  let notif = document.getElementById("cart-notif");
+  if (!notif) {
+    notif = document.createElement("div");
+    notif.id = "cart-notif";
+    document.body.appendChild(notif);
+  }
+  notif.textContent = `❌ Color "${color}" no disponible por el momento`;
+  notif.style.background = "#FF4444";
+  notif.classList.add("show");
+  clearTimeout(notif._timer);
+  notif._timer = setTimeout(() => {
+    notif.classList.remove("show");
+    notif.style.background = "";
+  }, 2500);
 }
 
 // ─────────────────────────────────────────────

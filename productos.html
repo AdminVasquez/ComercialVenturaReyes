@@ -16,6 +16,20 @@
     .variante-btn:hover { border-color: var(--accent); color: var(--accent); }
     .variante-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
 
+    /* Variante sin existencia: gris y tachada */
+    .variante-btn.variante-no-disponible {
+      background: var(--surface2);
+      color: var(--text2);
+      text-decoration: line-through;
+      opacity: 0.55;
+      cursor: not-allowed;
+      border-color: var(--border);
+    }
+    .variante-btn.variante-no-disponible:hover {
+      border-color: var(--border);
+      color: var(--text2);
+    }
+
     .btn-wa-card {
       display: flex; align-items: center; justify-content: center; gap: 6px;
       width: 100%; padding: 9px 12px; margin-top: 8px;
@@ -87,6 +101,7 @@
     location.href = "producto-detalle.html?id=" + id;
   }
 
+  // Cambia la imagen al elegir una variante DISPONIBLE
   function seleccionarVariante(productId, img, btn) {
     const imgEl = document.getElementById("img-" + productId);
     if (imgEl) imgEl.src = img;
@@ -121,15 +136,7 @@
     noRes.style.display = "none";
 
     grid.innerHTML = list.map((p, i) => {
-      const variantesHTML = p.variantes && p.variantes.length > 0
-        ? `<div class="variantes-wrap">
-            ${p.variantes.map((v, vi) => `
-              <button class="variante-btn ${vi === 0 ? 'active' : ''}"
-                onclick="event.stopPropagation();seleccionarVariante(${p.id},'${v.img}',this)">
-                ${v.color}
-              </button>`).join("")}
-           </div>`
-        : "";
+      const variantesHTML = renderVariantButtons(p, "seleccionarVariante");
 
       const msgWA = encodeURIComponent(
         `👋 Hola, me interesa:\n\n*${p.name}*\nPrecio: $${p.price.toFixed(2)}\n\n¿Está disponible?`
