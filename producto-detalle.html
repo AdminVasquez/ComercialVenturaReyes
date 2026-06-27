@@ -151,7 +151,7 @@
 
 <main>
   <div style="max-width:1100px;margin:0 auto;padding:24px 24px 0;">
-    <button class="back-btn" onclick="history.back()">← Volver</button>
+    <button class="back-btn" id="back-btn">← Volver</button>
   </div>
 
   <div class="detalle-layout" id="detalle-layout">
@@ -167,6 +167,7 @@
   const product = PRODUCTS.find(p => p.id === prodId);
 
   if (!product) {
+    document.getElementById("back-btn").addEventListener("click", () => location.href = "productos.html");
     document.getElementById("detalle-layout").innerHTML = `
       <div style="grid-column:1/-1;text-align:center;padding:80px 24px;color:var(--text2)">
         <p style="font-size:3rem;margin-bottom:16px">😕</p>
@@ -175,6 +176,11 @@
       </div>`;
   } else {
     document.title = `${product.name} — Comercial Ventura Reyes`;
+
+    // El botón "Volver" regresa a la misma categoría del producto
+    document.getElementById("back-btn").addEventListener("click", () => {
+      location.href = "productos.html?cat=" + encodeURIComponent(product.category);
+    });
 
     const variantesHTML = product.variantes && product.variantes.length > 0
       ? `<div>
